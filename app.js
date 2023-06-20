@@ -20,8 +20,8 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 const allowedCors = [
-  'http://mesto.petrov.nomoredomains.rocks',
-  'https://mesto.petrov.nomoredomains.rocks',
+  'http://diploma.petrov.nomoredomains.work',
+  'https://diploma.petrov.nomoredomains.work',
   'http://localhost:3000',
 ];
 
