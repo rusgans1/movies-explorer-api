@@ -62,6 +62,6 @@ app.use(((err, req, res, next) => {
 }));
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+mongoose.connect('mongodb://127.0.0.1:27017/moviesdb');
 // eslint-disable-next-line no-console
 app.listen(PORT, () => console.log('Сервер запущен'));
