@@ -10,22 +10,15 @@ const { limiter } = require('./middlewares/rate-limiter');
 const { loginUser, createUser, signOutUser } = require('./controller/users');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { createUserValidation, loginValidation } = require('./middlewares/validation');
+const { DATABASE_URL, PORT, corsOptions } = require('./utils/config');
 const userRoute = require('./routes/users');
 const movieRoute = require('./routes/movies');
 const auth = require('./middlewares/auth');
 const UnfindError = require('./errors/UnfindError');
 
-const { PORT = 3000 } = process.env;
-
 const app = express();
 
-const allowedCors = [
-  'http://diploma.petrov.nomoredomains.work',
-  'https://diploma.petrov.nomoredomains.work',
-  'http://localhost:3000',
-];
-
-app.use(cors({ origin: allowedCors, credentials: true }));
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -62,6 +55,6 @@ app.use(((err, req, res, next) => {
 }));
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://127.0.0.1:27017/moviesdb');
+mongoose.connect(DATABASE_URL);
 // eslint-disable-next-line no-console
 app.listen(PORT, () => console.log('Сервер запущен'));

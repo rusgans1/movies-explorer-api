@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
+const { JWT_CHECK } = require('../utils/config');
 const InvalidTokenError = require('../errors/InvalidTokenError');
-
-const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
@@ -14,7 +13,7 @@ module.exports = (req, res, next) => {
   try {
     payload = jwt.verify(
       token,
-      NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+      JWT_CHECK,
     );
   } catch (err) {
     throw new InvalidTokenError('Нужна авторизация');

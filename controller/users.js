@@ -5,8 +5,7 @@ const UnfindError = require('../errors/UnfindError');
 const InvalidTokenError = require('../errors/InvalidTokenError');
 const NonuniqueError = require('../errors/NonuniqueError');
 const ValidationError = require('../errors/ValidationError');
-
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { JWT_CHECK } = require('../utils/config');
 
 const createUser = (req, res, next) => {
   const { name, email, password } = req.body;
@@ -43,7 +42,7 @@ const loginUser = (req, res, next) => {
             throw new InvalidTokenError('Почта или пароль указаны неверно.');
           }
 
-          const token = jwt.sign({ _id: user.id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
+          const token = jwt.sign({ _id: user.id }, JWT_CHECK, { expiresIn: '7d' });
           return res.cookie('jwt', token, {
             maxAge: 3600000 * 24 * 7,
             httpOnly: true,
