@@ -1,7 +1,9 @@
+const { INVALID_TOKEN_ERROR } = require('../utils/constans');
+
 class InvalidTokenError extends Error {
   constructor(message) {
     super(message);
-    this.statusCode = 401;
+    this.statusCode = INVALID_TOKEN_ERROR;
   }
 }
 
