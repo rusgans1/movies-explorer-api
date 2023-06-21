@@ -1,0 +1,38 @@
+const FORBIDDEN_ERROR = 403;
+const FORBIDDEN_ERROR_MESSAGE = 'Недостаточно прав.';
+
+const INVALID_TOKEN_ERROR = 401;
+const INVALID_TOKEN_ERROR_MESSAGE = 'Ошибка авторизации!';
+
+const NONUNIQUE_ERROR = 409;
+const NONUNIQUE_ERROR_MESSAGE = 'Прозователь уже существует!';
+
+const SERVER_ERROR = 500;
+const SERVER_ERROR_MESSAGE = 'Ошибка сервера.';
+
+const UNFIND_ERROR = 404;
+const UNFIND_ERROR_MESSAGE = 'Данные не найдены.';
+
+const VALIDATION_ERROR = 400;
+const VALIDATION_ERROR_MESSAGE = 'Переданы некорректные данные.';
+
+const TOKEN_CREATE_MESSAGE = { message: 'Токен создан.' };
+
+const LOGOUT_MESSAGE = { message: 'Пользователь вышел.' };
+
+module.exports = {
+  VALIDATION_ERROR,
+  VALIDATION_ERROR_MESSAGE,
+  INVALID_TOKEN_ERROR,
+  INVALID_TOKEN_ERROR_MESSAGE,
+  FORBIDDEN_ERROR,
+  FORBIDDEN_ERROR_MESSAGE,
+  UNFIND_ERROR,
+  UNFIND_ERROR_MESSAGE,
+  NONUNIQUE_ERROR,
+  NONUNIQUE_ERROR_MESSAGE,
+  SERVER_ERROR,
+  SERVER_ERROR_MESSAGE,
+  TOKEN_CREATE_MESSAGE,
+  LOGOUT_MESSAGE,
+};
