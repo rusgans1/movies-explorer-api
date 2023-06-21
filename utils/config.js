@@ -10,7 +10,7 @@ const DATABASE_URL = (NODE_ENV === 'production' ? DB_URL : 'mongodb://127.0.0.1:
 const allowedCors = [
   'http://diploma.petrov.nomoredomains.work',
   'https://diploma.petrov.nomoredomains.work',
-  'http://localhost:3000',
+  'localhost:3000',
 ];
 
 const corsOptions = {
